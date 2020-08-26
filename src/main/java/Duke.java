@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Duke {
     public static void main(String[] args) {
         String inputString = "";
-        String[] tasks = new String[100];
+        Task[] tasks = new Task[100];
         int tasksCount = 0;
         Scanner in = new Scanner (System.in);
 
@@ -13,21 +13,32 @@ public class Duke {
 
         while (!inputString.equals("bye")) {
             inputString = in.nextLine();
-            switch(inputString){
+            String[] inputSplit = inputString.split(" ", 2);
+
+            switch(inputSplit[0]){
             case "list":
                 printLine();
                 for (int i = 0; i < tasksCount; i++) {
-                    System.out.println(i + ". " + tasks[i]);
+                    System.out.println((i+1) + ".[" + tasks[i].getStatusIcon()
+                            + "] " + tasks[i].getDescription());
                 }
                 printLine();
                 break;
             case "bye":
                 break;
+            case "done":
+                tasks[Integer.parseInt(inputSplit[1]) - 1].markAsDone();
+                printLine();
+                System.out.println("Nice! I've marked this task as done:");
+                System.out.println("[" + tasks[Integer.parseInt(inputSplit[1]) - 1].getStatusIcon() + "] "
+                        + tasks[Integer.parseInt(inputSplit[1]) - 1].getDescription());
+                printLine();
+                break;
             default:
                 printLine();
                 System.out.println("added: " + inputString);
                 printLine();
-                tasks[tasksCount] = inputString;
+                tasks[tasksCount] = new Task(inputString);
                 tasksCount += 1;
             }
         }
@@ -41,3 +52,5 @@ public class Duke {
         System.out.println("____________________________________________________________");
     }
 }
+
+
