@@ -8,10 +8,16 @@ public class Duke {
                 +"Hello! I'm Duke\nWhat can I do for you?\n"
                 +"____________________________________________________________");
         while (!inputString.equals("bye")) {
-            System.out.println(inputString);
             inputString = in.nextLine();
+            if (!inputString.equals("bye")) {
+                System.out.println("____________________________________________________________\n"
+                        + inputString + System.lineSeparator()
+                        + "____________________________________________________________");
+            }
         }
 
-        System.out.println("Bye. Hope to see you again soon!");
+        System.out.println("____________________________________________________________\n"
+                + "Bye. Hope to see you again soon!\n"
+                + "____________________________________________________________");
     }
 }
