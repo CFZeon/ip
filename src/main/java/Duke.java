@@ -17,7 +17,7 @@ public class Duke {
             case "list":
                 printLine();
                 for (int i = 0; i < tasksCount; i++) {
-                    System.out.println(i + ". " + tasks[i]);
+                    System.out.println((i+1) + ". " + tasks[i]);
                 }
                 printLine();
                 break;
