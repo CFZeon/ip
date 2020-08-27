@@ -15,7 +15,7 @@ public class Duke {
             inputString = in.nextLine();
             String[] inputSplit = inputString.split(" ", 2);
 
-            switch(inputSplit[0]){
+            switch(inputSplit[0].trim()){
             case "list":
                 printLine();
                 for (int i = 0; i < tasksCount; i++) {
@@ -27,11 +27,15 @@ public class Duke {
             case "bye":
                 break;
             case "done":
-                tasks[Integer.parseInt(inputSplit[1]) - 1].markAsDone();
                 printLine();
-                System.out.println("Nice! I've marked this task as done:");
-                System.out.println("[" + tasks[Integer.parseInt(inputSplit[1]) - 1].getStatusIcon() + "] "
-                        + tasks[Integer.parseInt(inputSplit[1]) - 1].getDescription());
+                if (Integer.parseInt(inputSplit[1]) > 0 && Integer.parseInt(inputSplit[1]) <= tasksCount) {
+                    tasks[Integer.parseInt(inputSplit[1]) - 1].markAsDone();
+                    System.out.println("Nice! I've marked this task as done:");
+                    System.out.println("[" + tasks[Integer.parseInt(inputSplit[1]) - 1].getStatusIcon() + "] "
+                            + tasks[Integer.parseInt(inputSplit[1]) - 1].getDescription());
+                } else {
+                    System.out.println("Sorry! There is no task at " + inputSplit[1] + ".");
+                }
                 printLine();
                 break;
             default:
