@@ -1,0 +1,7 @@
+event foo/bar
+todo Play Library of Ruina
+list
+done 1
+deadline bar/foo
+list
+bye
