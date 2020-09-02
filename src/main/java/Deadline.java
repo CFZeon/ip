@@ -1,12 +1,11 @@
 public class Deadline extends Task {
     public Deadline(String description, String doBy) {
         super(description);
-        this.doBy = doBy;
-        taskType = 'D';
+        this.doBy = doBy.trim().split(" ", 2);
     }
 
     @Override
-    public String getDoBy() {
-        return ("(" + doBy + ")");
+    public String toString() {
+        return "[D]" + super.toString() + "(" + this.doBy[0] +": " + this.doBy[1] + ")";
     }
 }

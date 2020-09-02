@@ -1,13 +1,11 @@
 public class Task {
     protected String description;
-    protected String doBy;
+    protected String[] doBy;
     protected boolean isDone;
-    protected char taskType;
 
     public Task(String description) {
         this.description = description;
         this.isDone = false;
-        this.doBy = "";
     }
 
     public String getStatusIcon() {
@@ -18,11 +16,11 @@ public class Task {
         return (description);
     }
 
-    public String getDoBy() { return (doBy);}
-
-    public char getTaskType() {return (taskType);}
-
     public void markAsDone() {
         isDone = true;
+    }
+
+    public String toString(){
+        return "[" + getStatusIcon() + "]" + description;
     }
 }

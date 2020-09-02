@@ -14,7 +14,6 @@ public class Duke {
         while (!inputString.equals("bye")) {
             inputString = in.nextLine();
             String[] inputSplit = inputString.trim().split(" ", 2);
-            String[] inputSplitAtSlash;
 
             switch(inputSplit[0].trim()){
             case "list":
@@ -24,27 +23,47 @@ public class Duke {
                 taskDone(tasks, tasksCount, inputSplit);
                 break;
             case "todo":
-                tasks[tasksCount] = new Todo(inputSplit[1]);
-                tasksCount = taskAddMessage(tasks[tasksCount], tasksCount);
+                tasksCount = taskAddTodo(tasks, tasksCount, inputSplit);
                 break;
             case "deadline":
-                inputSplitAtSlash = inputSplit[1].trim().split("/", 2);
-                tasks[tasksCount] = new Deadline(inputSplitAtSlash[0], inputSplitAtSlash[1]);;
-                tasksCount = taskWithTimeAddMessage(tasks[tasksCount], tasksCount);
+                tasksCount = taskAddDeadline(tasks, tasksCount, inputSplit[1]);
                 break;
             case "event":
-                inputSplitAtSlash = inputSplit[1].trim().split("/", 2);
-                tasks[tasksCount] = new Event(inputSplitAtSlash[0], inputSplitAtSlash[1]);
-                tasksCount = taskWithTimeAddMessage(tasks[tasksCount], tasksCount);
+                tasksCount = taskAddEvent(tasks, tasksCount, inputSplit[1]);
                 break;
             case "bye":
                 break;
             default:
                 invalidCommandMessage();
+                break;
             }
         }
 
         byeMessage();
+    }
+
+    private static int taskAddEvent(Task[] tasks, int tasksCount, String s) {
+        String[] inputSplitAtSlash;
+        //splits input into task and time
+        inputSplitAtSlash = s.trim().split("/", 2);
+        tasks[tasksCount] = new Event(inputSplitAtSlash[0], inputSplitAtSlash[1]);
+        tasksCount = taskWithTimeAddMessage(tasks[tasksCount], tasksCount);
+        return tasksCount;
+    }
+
+    private static int taskAddDeadline(Task[] tasks, int tasksCount, String s) {
+        String[] inputSplitAtSlash;
+        //splits input into task and time
+        inputSplitAtSlash = s.trim().split("/", 2);
+        tasks[tasksCount] = new Deadline(inputSplitAtSlash[0], inputSplitAtSlash[1]);
+        tasksCount = taskWithTimeAddMessage(tasks[tasksCount], tasksCount);
+        return tasksCount;
+    }
+
+    private static int taskAddTodo(Task[] tasks, int tasksCount, String[] inputSplit) {
+        tasks[tasksCount] = new Todo(inputSplit[1]);
+        tasksCount = taskAddMessage(tasks[tasksCount], tasksCount);
+        return tasksCount;
     }
 
     private static void welcomeMessage() {
@@ -59,8 +78,7 @@ public class Duke {
 
     private static int taskAddMessage(Task task, int tasksCount) {
         System.out.println(LINE + System.lineSeparator() + "Got it. I've added this task: "
-                + System.lineSeparator() + "[" + task.getTaskType() + "][" + task.getStatusIcon()+ "] "
-                + task.getDescription() + task.getDoBy());
+                + System.lineSeparator() + task);
         tasksCount += 1;
         System.out.println("Now you have " + tasksCount + " tasks in the list.");
         System.out.println(LINE);
@@ -69,8 +87,7 @@ public class Duke {
 
     private static int taskWithTimeAddMessage(Task task, int tasksCount) {
         System.out.println(LINE + System.lineSeparator() + "Got it. I've added this task: ");
-        System.out.println("[" + task.getTaskType() + "][" + task.getStatusIcon()
-                + "] " + task.getDescription() + task.getDoBy());
+        System.out.println(task);
         tasksCount += 1;
         System.out.println("Now you have " + tasksCount + " tasks in the list.");
         System.out.println(LINE);
@@ -81,31 +98,28 @@ public class Duke {
         System.out.println(LINE);
         System.out.println("Here are the tasks in your list:");
         for (int i = 0; i < tasksCount; i++) {
-            System.out.println((i+1) + ".[" + tasks[i].getTaskType() + "]["
-                    + tasks[i].getStatusIcon() + "]" + tasks[i].getDescription()
-                    + tasks[i].getDoBy());
+            System.out.println((i+1) + "." + tasks[i]);
         }
         System.out.println(LINE);
     }
 
     private static void taskDone(Task[] tasks, int tasksCount, String[] inputSplit) {
         System.out.println(LINE);
-        if (Integer.parseInt(inputSplit[1]) > 0 && Integer.parseInt(inputSplit[1]) <= tasksCount) {
-            tasks[Integer.parseInt(inputSplit[1]) - 1].markAsDone();
-            System.out.println("Nice! I've marked this task as done:");
-            System.out.println("[" + tasks[Integer.parseInt(inputSplit[1]) - 1].getTaskType() + "]["
-                    + tasks[Integer.parseInt(inputSplit[1]) - 1].getStatusIcon() + "] "
-                    + tasks[Integer.parseInt(inputSplit[1]) - 1].getDescription()
-                    + tasks[Integer.parseInt(inputSplit[1]) - 1].getDoBy());
-        } else {
-            System.out.println("Sorry! There is no task at " + inputSplit[1] + ".");
+        int taskNumber = Integer.parseInt(inputSplit[1]);
+        // to check if the task exists
+        if (taskNumber < 0 && taskNumber >= tasksCount) {
+            System.out.println("Sorry! There is no task at " + taskNumber + ".");
+            return;
         }
+        tasks[taskNumber - 1].markAsDone();
+        System.out.println("Nice! I've marked this task as done:");
+        System.out.println(taskNumber + "." + tasks[taskNumber - 1]);
         System.out.println(LINE);
     }
 
     private static void byeMessage() {
-        System.out.println(LINE + System.lineSeparator() +"Bye. Hope to see you again soon!"
-                + System.lineSeparator() + LINE);
+        System.out.println(LINE + System.lineSeparator() +"Bye. Hope to see you again soon!");
+        System.out.println(LINE);
     }
 }
 

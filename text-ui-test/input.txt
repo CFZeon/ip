@@ -1,7 +1,7 @@
-event foo/bar
+event foo /bar ring
 todo Play Library of Ruina
 list
 done 1
-deadline bar/foo
+deadline bar /foo lish
 list
 bye
