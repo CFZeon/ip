@@ -1,3 +1,10 @@
+package duke;
+
+import duke.task.Deadline;
+import duke.task.Event;
+import duke.task.Task;
+import duke.task.Todo;
+
 import java.util.Scanner;
 
 public class Duke {
@@ -56,7 +63,7 @@ public class Duke {
         System.out.println("\"deadline [action] /[limit] [time]\": adds a deadline into the list");
         System.out.println("\"event [action] /[limit] [time]\": adds an event into the list");
         System.out.println("\"help\": brings you to this menu!");
-        System.out.println("\"bye\": exits Duke");
+        System.out.println("\"bye\": exits duke.Duke");
         System.out.println(LINE);
     }
 
@@ -142,7 +149,7 @@ public class Duke {
     }
 
     private static void welcomeMessage() {
-        System.out.println(LINE + System.lineSeparator() + "Hello! I'm Duke" + System.lineSeparator()
+        System.out.println(LINE + System.lineSeparator() + "Hello! I'm duke.Duke" + System.lineSeparator()
                 + "What can I do for you?" + System.lineSeparator() + LINE);
     }
 
