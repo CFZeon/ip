@@ -3,6 +3,15 @@ Hello! I'm Duke
 What can I do for you?
 ____________________________________________________________
 ____________________________________________________________
+Here are a list of available commands:
+"done [number on list]": marks a task on the list as done
+"todo [action]": adds a todo into the list
+"deadline [action] /[limit] [time]": adds a deadline into the list
+"event [action] /[limit] [time]": adds an event into the list
+"help": brings you to this menu!
+"bye": exits Duke
+____________________________________________________________
+____________________________________________________________
 Got it. I've added this task: 
 [E][✘]foo (bar: ring)
 Now you have 1 tasks in the list.
@@ -33,5 +42,18 @@ Here are the tasks in your list:
 3.[D][✘]bar (foo: lish)
 ____________________________________________________________
 ____________________________________________________________
-Bye. Hope to see you again soon!
+Please enter a proper event! "event [task] /[limit] [time]"
+____________________________________________________________
+____________________________________________________________
+Please enter a proper deadline! "deadline [task] /[limit] [time]"
+____________________________________________________________
+____________________________________________________________
+Sorry! You have entered an invalid command.
+Type "help" to view a list of available commands!
+____________________________________________________________
+____________________________________________________________
+Please enter a proper todo! "todo [task]"
+____________________________________________________________
+____________________________________________________________
+Bye! Hope to see you again soon!
 ____________________________________________________________
