@@ -1,7 +1,12 @@
+help
 event foo /bar ring
 todo Play Library of Ruina
 list
 done 1
 deadline bar /foo lish
 list
+event foo /bar
+deadline bar /foo
+random input line here
+todo
 bye
