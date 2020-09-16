@@ -22,6 +22,13 @@ public class DukeException extends Exception{
         case "todo":
             System.out.println("Please enter a proper todo! \"todo [task]\"");
             break;
+        case "delete":
+            System.out.println("Failed to delete! Try this instead \"delete [task number]\"" +
+                    " or if that doesn't work, check if the task exists!");
+            break;
+        case "done":
+            System.out.println("Failed to mark as done! Try this instead \"done [task number]\"");
+            break;
         default:
             System.out.println("Please enter a valid command! Type \"help\" to see a list of commands!");
             break;

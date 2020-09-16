@@ -8,5 +8,7 @@ list
 event foo /bar
 deadline bar /foo
 random input line here
+delete 1
+list
 todo
 bye
