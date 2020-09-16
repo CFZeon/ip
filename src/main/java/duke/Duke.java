@@ -9,17 +9,23 @@ import java.util.Scanner;
 import java.util.ArrayList;
 public class Duke {
     static final String LINE = "____________________________________________________________";
-    private static final ArrayList<Task> tasks = new ArrayList<>();
+    private static ArrayList<Task> tasks = new ArrayList<>();
     private static final Scanner in = new Scanner (System.in);
 
-    public static void main(String[] args) {
-        int tasksCount = 0;
-
+    public static void main(String[] args) throws DukeException {
         welcomeMessage();
 
+        int tasksCount = taskLoad();
         inputLoop(tasksCount);
 
         byeMessage();
+    }
+
+    private static int taskLoad() throws DukeException {
+        int tasksCount;
+        tasks = SaveLoad.loadTasksList();
+        tasksCount = tasks.size();
+        return tasksCount;
     }
 
     private static void inputLoop(int tasksCount) {
@@ -80,14 +86,14 @@ public class Duke {
 
     private static void taskHelp() {
         System.out.println(LINE);
-        System.out.println("Here are a list of available commands:");
+        System.out.println("Here are a list of available command:");
         System.out.println("\"done [number on list]\": marks a task on the list as done");
         System.out.println("\"todo [action]\": adds a todo into the list");
         System.out.println("\"deadline [action] /[limit] [time]\": adds a deadline into the list");
         System.out.println("\"event [action] /[limit] [time]\": adds an event into the list");
         System.out.println("\"help\": brings you to this menu!");
         System.out.println("\"delete [number on list]\" removes a task from the list");
-        System.out.println("\"bye\": exits duke.Duke");
+        System.out.println("\"bye\": exits duke.");
         System.out.println(LINE);
     }
 
@@ -123,6 +129,7 @@ public class Duke {
             Event temp = new Event(inputSplitAtSlash[0], inputSplitAtSlash[1]);
             tasks.add(temp);
             tasksCount = taskWithTimeAddMessage(tasks.get(tasksCount), tasksCount);
+            SaveLoad.saveTasks(tasks);
         } catch (DukeException e) {
             System.out.println(LINE);
             e.getError("event");
@@ -151,6 +158,7 @@ public class Duke {
             Deadline temp = new Deadline(inputSplitAtSlash[0], inputSplitAtSlash[1]);
             tasks.add(temp);
             tasksCount = taskWithTimeAddMessage(tasks.get(tasksCount), tasksCount);
+            SaveLoad.saveTasks(tasks);
         } catch (DukeException e) {
             System.out.println(LINE);
             e.getError("deadline");
@@ -167,6 +175,7 @@ public class Duke {
             Todo temp =  new Todo(inputSplit[1]);
             tasks.add(temp);
             tasksCount = taskAddMessage(tasks.get(tasksCount), tasksCount);
+            SaveLoad.saveTasks(tasks);
         } catch (DukeException e) {
             System.out.println(LINE);
             e.getError("todo");
@@ -215,6 +224,7 @@ public class Duke {
             tasks.get(taskNumber - 1).markAsDone();
             System.out.println("Nice! I've marked this task as done:");
             System.out.println(taskNumber + "." + tasks.get(taskNumber - 1));
+            SaveLoad.saveTasks(tasks);
         } catch (DukeException e) {
             e.getError("done");
         }
