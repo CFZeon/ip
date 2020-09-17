@@ -78,30 +78,44 @@ public class SaveLoad{
                 String curLine = saveFileScanner.nextLine();
                 // a limit of 0 splits the string as many times as possible
                 String[] taskDesc = curLine.trim().split(" \\| ", 0);
-
                 switch (taskDesc[0]) {
                 case "Todo": {
+                    if (taskDesc.length != 3) {
+                        throw new DukeException("loadFile");
+                    }
                     Todo temp = new Todo(taskDesc[2]);
                     temp.setIsDone(Boolean.parseBoolean(taskDesc[1]));
                     tasksList.add(temp);
                     break;
                 }
                 case "Event": {
+                    if (taskDesc.length != 5){
+                        throw new DukeException("loadFile");
+                    }
                     Event temp = new Event(taskDesc[2], taskDesc[3] + " " + taskDesc[4]);
                     temp.setIsDone(Boolean.parseBoolean(taskDesc[1]));
                     tasksList.add(temp);
                     break;
                 }
                 case "Deadline": {
+                    if (taskDesc.length != 5){
+                        throw new DukeException("loadFile");
+                    }
                     Deadline temp = new Deadline(taskDesc[2], taskDesc[3] + " " + taskDesc[4]);
                     temp.setIsDone(Boolean.parseBoolean(taskDesc[1]));
                     tasksList.add(temp);
+                    break;
+                }
+                default: {
+                    System.out.println("It seems like some of your tasks were not saved properly!");
                     break;
                 }
                 }
             }
         } catch (FileNotFoundException e) {
             throw new DukeException("Unable to read save File");
+        } catch (DukeException e) {
+            e.getError("loadFile");
         }
         return tasksList;
     }

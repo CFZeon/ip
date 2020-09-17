@@ -7,6 +7,7 @@ import duke.task.Todo;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+
 public class Duke {
     static final String LINE = "____________________________________________________________";
     private static ArrayList<Task> tasks = new ArrayList<>();

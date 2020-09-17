@@ -29,6 +29,8 @@ public class DukeException extends Exception{
         case "done":
             System.out.println("Failed to mark as done! Try this instead \"done [task number]\"");
             break;
+        case "loadFile":
+            System.out.println("List loading unsuccessful...");
         default:
             System.out.println("Please enter a valid command! Type \"help\" to see a list of commands!");
             break;
