@@ -78,6 +78,7 @@ public class Duke {
             tasks.remove(taskNumber - 1);
             tasksCount -= 1;
             System.out.println("Now you have " + tasksCount + " tasks in the list.");
+            SaveLoad.saveTasks(tasks);
         } catch (DukeException e) {
             e.getError("delete");
         }
@@ -116,11 +117,11 @@ public class Duke {
         try {
             //splits input into task and time
             if (s.length == 1) {
-                throw new DukeException("deadline");
+                throw new DukeException("event");
             }
             inputSplitAtSlash = s[1].trim().split("/", 2);
             if (inputSplitAtSlash.length == 1) {
-                throw new DukeException("deadline");
+                throw new DukeException("event");
             }
             // if input string format does not fit constructor, throw error
             String[] constructorFormat = inputSplitAtSlash[1].trim().split(" ", 2);
