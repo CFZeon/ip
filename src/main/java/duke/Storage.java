@@ -13,11 +13,11 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class SaveLoad{
+public class Storage{
     static final String TASKS_SAVE_PATH = "data/tasksList.txt";
     private static ArrayList<Task> tasksList = new ArrayList<>();
 
-    public static void saveTasks(ArrayList<Task> saveInput) throws DukeException{
+    public void saveTasks(ArrayList<Task> saveInput) throws DukeException{
         File saveFile = new File(TASKS_SAVE_PATH);
         boolean doesFileExist = saveFile.exists();
         tasksList = saveInput;
@@ -56,7 +56,7 @@ public class SaveLoad{
         }
     }
 
-    public static ArrayList<Task> loadTasksList() throws DukeException{
+    public ArrayList<Task> loadTasksList() throws DukeException{
         // creates file for the path
         File saveFile = new File(TASKS_SAVE_PATH);
         boolean doesFileExist = saveFile.exists();
