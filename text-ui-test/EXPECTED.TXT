@@ -1,15 +1,20 @@
 ____________________________________________________________
-Hello! I'm Duke
+Hello! I'm Duke!
 What can I do for you?
 ____________________________________________________________
 ____________________________________________________________
 Here are a list of available commands:
 "done [number on list]": marks a task on the list as done
 "todo [action]": adds a todo into the list
-"deadline [action] /[limit] [time]": adds a deadline into the list
-"event [action] /[limit] [time]": adds an event into the list
+"deadline [action] /[limit] [date] [time]": adds a deadline into the list
+deadlines also print your own strings, or just dates alone
+"event [action] /[limit] [date] [time]": adds an event into the list
+events also print your own strings, or just dates alone
 "help": brings you to this menu!
-"bye": exits Duke
+"delete [number on list]": removes a task from the list
+"bye": exits duke
+Failed to use date and time properly? Try this:
+dd/MM/yyyy HHmm
 ____________________________________________________________
 ____________________________________________________________
 Got it. I've added this task: 
@@ -45,11 +50,36 @@ ____________________________________________________________
 Please enter a proper event! "event [task] /[limit] [time]"
 ____________________________________________________________
 ____________________________________________________________
+Got it. I've added this task: 
+[E][✘]something (at: May 4 2020, 11:59 PM)
+Now you have 4 tasks in the list.
+____________________________________________________________
+____________________________________________________________
+Got it. I've added this task: 
+[D][✘]same thing but (on: May 3 2020)
+Now you have 5 tasks in the list.
+____________________________________________________________
+____________________________________________________________
 Please enter a proper deadline! "deadline [task] /[limit] [time]"
 ____________________________________________________________
 ____________________________________________________________
 Sorry! You have entered an invalid command.
 Type "help" to view a list of available commands!
+____________________________________________________________
+____________________________________________________________
+Noted. I've removed this task:
+[E][✓]foo (bar: ring)
+Now you have 4 tasks in the list.
+____________________________________________________________
+____________________________________________________________
+Failed to delete! Try this instead "delete [task number]" or if that doesn't work, check if the task exists!
+____________________________________________________________
+____________________________________________________________
+Here are the tasks in your list:
+1.[T][✘]Play Library of Ruina
+2.[D][✘]bar (foo: lish)
+3.[E][✘]something (at: May 4 2020, 11:59 PM)
+4.[D][✘]same thing but (on: May 3 2020)
 ____________________________________________________________
 ____________________________________________________________
 Please enter a proper todo! "todo [task]"

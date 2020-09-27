@@ -31,7 +31,11 @@ public class DukeException extends Exception{
             break;
         case "loadFile":
             System.out.println("List loading unsuccessful...");
-            System.out.println("I saved what I could though!");
+            System.out.println("I loaded what I could before the error though!");
+            break;
+        case "DateFormat":
+            System.out.println("Invalid date and time format!");
+            System.out.println("Try this: dd/mm/yyyy");
             break;
         default:
             System.out.println("Please enter a valid command! Type \"help\" to see a list of commands!");

@@ -2,7 +2,6 @@ package duke;
 
 import duke.command.Command;
 import java.util.Scanner;
-
 import duke.Parser;
 
 public class Duke{
@@ -21,7 +20,7 @@ public class Duke{
         ui.byeMessage();
     }
 
-    private static void inputLoop() throws DukeException {
+    private static void inputLoop() {
         String inputString = "";
         while (!inputString.equals("bye")) {
             inputString = in.nextLine();
