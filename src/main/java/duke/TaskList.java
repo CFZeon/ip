@@ -11,29 +11,22 @@ public class TaskList {
     protected static ArrayList<Task> tasks = new ArrayList<>();
 
     public void taskDelete(TaskList tasks, Ui ui, Storage storage, String s) {
-        ui.printLine();
+        Ui.printLine();
         try {
             int taskNumber = Integer.parseInt(s);
             // to check if the task exists
             if (taskNumber <= 0 || taskNumber > tasks.getTasksSize()) {
                 throw new DukeException("delete");
             }
-            TaskList.taskDeleteMessage(taskNumber);
-            storage.saveTasks(tasks.tasks);
+            ui.taskDeleteMessage(taskNumber);
+            storage.saveTasks(TaskList.tasks);
         } catch (DukeException e) {
             e.getError("delete");
         }
-        ui.printLine();
+        Ui.printLine();
     }
 
-    private static void taskDeleteMessage(int taskNumber) {
-        System.out.println("Noted. I've removed this task:");
-        // 0 based array index so task location is -1
-        int taskIndex = taskNumber - 1;
-        System.out.println(tasks.get(taskIndex));
-        tasks.remove(taskIndex);
-        System.out.println("Now you have " + tasks.size() + " tasks in the list.");
-    }
+
 
     public void taskAddEvent(TaskList tasks, Ui ui, Storage storage, String s) {
         String[] inputSplitAtSlash;
@@ -49,13 +42,13 @@ public class TaskList {
                 throw new DukeException("event");
             }
             Event temp = new Event(inputSplitAtSlash[0], inputSplitAtSlash[1]);
-            tasks.tasks.add(temp);
+            TaskList.tasks.add(temp);
             ui.taskWithTimeAddMessage(tasks);
-            storage.saveTasks(tasks.tasks);
+            storage.saveTasks(TaskList.tasks);
         } catch (DukeException e) {
-            ui.printLine();
+            Ui.printLine();
             e.getError("event");
-            ui.printLine();
+            Ui.printLine();
         }
     }
 
@@ -73,34 +66,31 @@ public class TaskList {
                 throw new DukeException("deadline");
             }
             Deadline temp = new Deadline(inputSplitAtSlash[0], inputSplitAtSlash[1]);
-            tasks.tasks.add(temp);
+            TaskList.tasks.add(temp);
             ui.taskWithTimeAddMessage(tasks);
-            storage.saveTasks(tasks.tasks);
+            storage.saveTasks(TaskList.tasks);
         } catch (DukeException e) {
-            ui.printLine();
+            Ui.printLine();
             e.getError("deadline");
-            ui.printLine();
+            Ui.printLine();
         }
     }
 
     public void taskAddTodo(TaskList tasks, Ui ui, Storage storage, String input) {
         try {
-            if (input.equals(null)) {
-                throw new DukeException("todo");
-            }
             Todo temp = new Todo(input);
-            tasks.tasks.add(temp);
+            TaskList.tasks.add(temp);
             ui.taskAddMessage(tasks);
-            storage.saveTasks(tasks.tasks);
+            storage.saveTasks(TaskList.tasks);
         } catch (DukeException e) {
-            ui.printLine();
+            Ui.printLine();
             e.getError("todo");
-            ui.printLine();
+            Ui.printLine();
         }
     }
 
     public void taskDone(TaskList tasks, Ui ui, Storage storage, String inputSplit) {
-        ui.printLine();
+        Ui.printLine();
         try {
             int taskNumber = Integer.parseInt(inputSplit);
             // on 0-index based array, location of task is -1
@@ -109,14 +99,14 @@ public class TaskList {
             if (taskNumber <= 0 || taskNumber > tasks.getTasksSize()) {
                 throw new DukeException("done");
             }
-            tasks.tasks.get(taskIndex).markAsDone();
+            TaskList.tasks.get(taskIndex).markAsDone();
             System.out.println("Nice! I've marked this task as done:");
-            System.out.println(taskNumber + "." + tasks.tasks.get(taskIndex));
-            storage.saveTasks(tasks.tasks);
+            System.out.println(taskNumber + "." + TaskList.tasks.get(taskIndex));
+            storage.saveTasks(TaskList.tasks);
         } catch (DukeException e) {
             e.getError("done");
         }
-        ui.printLine();
+        Ui.printLine();
     }
 
     public int getTasksSize() {

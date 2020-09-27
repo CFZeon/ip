@@ -31,6 +31,8 @@ public class DukeException extends Exception{
             break;
         case "loadFile":
             System.out.println("List loading unsuccessful...");
+            System.out.println("I saved what I could though!");
+            break;
         default:
             System.out.println("Please enter a valid command! Type \"help\" to see a list of commands!");
             break;

@@ -4,7 +4,6 @@ import duke.task.Deadline;
 import duke.task.Event;
 import duke.task.Task;
 import duke.task.Todo;
-import duke.DukeException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -115,7 +114,9 @@ public class Storage{
         } catch (FileNotFoundException e) {
             throw new DukeException("Unable to read save File");
         } catch (DukeException e) {
+            Ui.printLine();
             e.getError("loadFile");
+            Ui.printLine();
         }
         return tasksList;
     }

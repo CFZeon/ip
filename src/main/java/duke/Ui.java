@@ -1,11 +1,9 @@
 package duke;
 
-import duke.task.Task;
-
 public class Ui {
     static final String LINE = "____________________________________________________________";
 
-    public static void taskHelp() {
+    public void taskHelp() {
         printLine();
         System.out.println("Here are a list of available commands:");
         System.out.println("\"done [number on list]\": marks a task on the list as done");
@@ -18,32 +16,41 @@ public class Ui {
         printLine();
     }
 
-    public static void taskList(TaskList tasks) {
+    public void taskList(TaskList tasks) {
         printLine();
         System.out.println("Here are the tasks in your list:");
         if (tasks.getTasksSize() == 0) {
             System.out.println("Oops! Looks like there's nothing in your list!");
         }
         for (int i = 0; i < tasks.getTasksSize(); i++) {
-            System.out.println((i + 1) + "." + tasks.tasks.get(i));
+            System.out.println((i + 1) + "." + TaskList.tasks.get(i));
         }
         printLine();
     }
 
-    public static void taskAddMessage(TaskList tasks) {
+    public void taskAddMessage(TaskList tasks) {
         printLine();
         System.out.println("Got it. I've added this task: "
-                + System.lineSeparator() + tasks.tasks.get(tasks.getTasksSize() - 1));
+                + System.lineSeparator() + TaskList.tasks.get(tasks.getTasksSize() - 1));
         System.out.println("Now you have " + tasks.getTasksSize() + " tasks in the list.");
         printLine();
     }
 
-    protected static void taskWithTimeAddMessage(TaskList tasks) {
+    protected void taskWithTimeAddMessage(TaskList tasks) {
         printLine();
         System.out.println("Got it. I've added this task: ");
-        System.out.println(tasks.tasks.get(tasks.getTasksSize() - 1));
-        System.out.println("Now you have " + tasks.tasks.size() + " tasks in the list.");
+        System.out.println(TaskList.tasks.get(tasks.getTasksSize() - 1));
+        System.out.println("Now you have " + TaskList.tasks.size() + " tasks in the list.");
         printLine();
+    }
+
+    public void taskDeleteMessage(int taskNumber) {
+        System.out.println("Noted. I've removed this task:");
+        // 0 based array index so task location is -1
+        int taskIndex = taskNumber - 1;
+        System.out.println(TaskList.tasks.get(taskIndex));
+        TaskList.tasks.remove(taskIndex);
+        System.out.println("Now you have " + TaskList.tasks.size() + " tasks in the list.");
     }
 
     public void welcomeMessage() {
