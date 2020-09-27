@@ -1,2 +1,4 @@
 Todo | false | Play Library of Ruina
 Deadline | false | bar  | foo | lish
+Event | false | something  | at | 04/05/2020 2359
+Deadline | false | same thing but  | on | 03-05-2020
