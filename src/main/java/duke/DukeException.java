@@ -31,10 +31,17 @@ public class DukeException extends Exception{
             break;
         case "loadFile":
             System.out.println("List loading unsuccessful...");
-            System.out.println("I saved what I could though!");
+            System.out.println("I loaded what I could before the error though!");
             break;
         case "find":
             System.out.println("Please enter a proper find! \"find [String]\"");
+        case "DateFormat":
+            System.out.println("Invalid date and time format!");
+            System.out.println("Try this: dd/mm/yyyy");
+            break;
+        case "dateSearch":
+            System.out.println("Invalid dateSearch format!");
+            System.out.println("Try this: dateSearch [dd/mm/yyyy]");
         default:
             System.out.println("Please enter a valid command! Type \"help\" to see a list of commands!");
             break;
