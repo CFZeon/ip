@@ -5,6 +5,9 @@ import java.util.Scanner;
 
 import duke.Parser;
 
+/**
+ * Runs the Duke program
+ */
 public class Duke{
     private static Scanner in = new Scanner (System.in);
     protected static Storage storage = new Storage();
@@ -12,6 +15,12 @@ public class Duke{
     protected static TaskList tasks = new TaskList();
     protected static Parser parser = new Parser();
 
+    /**
+     * Runs the Duke program through the main class
+     *
+     * @param args Runtime arguments are unused
+     * @throws DukeException If command has error
+     */
     public static void main(String[] args) throws DukeException {
         ui.welcomeMessage();
 
@@ -21,7 +30,7 @@ public class Duke{
         ui.byeMessage();
     }
 
-    private static void inputLoop() throws DukeException {
+    private static void inputLoop() {
         String inputString = "";
         while (!inputString.equals("bye")) {
             inputString = in.nextLine();

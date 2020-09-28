@@ -1,8 +1,14 @@
 package duke;
 
+/**
+ * Contains methods for all user interactions
+ */
 public class Ui {
     static final String LINE = "____________________________________________________________";
 
+    /**
+     * Prints out a list of commands for duke
+     */
     public void taskHelp() {
         printLine();
         System.out.println("Here are a list of available commands:");
@@ -16,6 +22,10 @@ public class Ui {
         printLine();
     }
 
+    /**
+     * Lists out all the tasks in the list
+     * @param tasks Instantiation of TaskList
+     */
     public void taskList(TaskList tasks) {
         printLine();
         System.out.println("Here are the tasks in your list:");
@@ -28,6 +38,10 @@ public class Ui {
         printLine();
     }
 
+    /**
+     * Print messasge for adding a task when it is a todo
+     * @param tasks Instantiation of TaskList
+     */
     public void taskAddMessage(TaskList tasks) {
         printLine();
         System.out.println("Got it. I've added this task: "
@@ -36,6 +50,10 @@ public class Ui {
         printLine();
     }
 
+    /**
+     * Prints the message for adding a task when it is a deadline or event
+     * @param tasks Instantiation of TaskList
+     */
     protected void taskWithTimeAddMessage(TaskList tasks) {
         printLine();
         System.out.println("Got it. I've added this task: ");
@@ -44,6 +62,10 @@ public class Ui {
         printLine();
     }
 
+    /**
+     * Prints delete message after deleting a task
+     * @param taskNumber 1-based index of task number in the list
+     */
     public void taskDeleteMessage(int taskNumber) {
         System.out.println("Noted. I've removed this task:");
         // 0 based array index so task location is -1
@@ -53,6 +75,9 @@ public class Ui {
         System.out.println("Now you have " + TaskList.tasks.size() + " tasks in the list.");
     }
 
+    /**
+     * Prints the welcome message at launch time
+     */
     public void welcomeMessage() {
         printLine();
         System.out.println("Hello! I'm Duke!" + System.lineSeparator()
@@ -60,6 +85,9 @@ public class Ui {
         printLine();
     }
 
+    /**
+     * Prints a message when a command is not recognised
+     */
     protected static void invalidCommandMessage() {
         printLine();
         System.out.println("Sorry! You have entered an invalid command.");
@@ -67,12 +95,18 @@ public class Ui {
         printLine();
     }
 
+    /**
+     * Prints the farewell message
+     */
     protected void byeMessage() {
         printLine();
         System.out.println("Bye! Hope to see you again soon!");
         printLine();
     }
 
+    /**
+     * Prints a line for user interface
+     */
     protected static void printLine() {
         System.out.println(LINE);
     }

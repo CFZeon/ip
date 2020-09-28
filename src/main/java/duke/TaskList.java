@@ -7,9 +7,20 @@ import duke.task.Todo;
 
 import java.util.ArrayList;
 
+/**
+ * Holds the task list and modifying functions
+ */
 public class TaskList {
     protected static ArrayList<Task> tasks = new ArrayList<>();
 
+    /**
+     * Deletes a task from the list
+     *
+     * @param tasks TaskList instantiation
+     * @param ui Ui instantiation
+     * @param storage Storage instantiation
+     * @param s User number input
+     */
     public void taskDelete(TaskList tasks, Ui ui, Storage storage, String s) {
         Ui.printLine();
         try {
@@ -27,7 +38,14 @@ public class TaskList {
     }
 
 
-
+    /**
+     * Adds an event into the task list
+     *
+     * @param tasks TaskList instantiation
+     * @param ui Ui instantiation
+     * @param storage Storage instantiation
+     * @param s User string input
+     */
     public void taskAddEvent(TaskList tasks, Ui ui, Storage storage, String s) {
         String[] inputSplitAtSlash;
         try {
@@ -52,6 +70,14 @@ public class TaskList {
         }
     }
 
+    /**
+     * Adds a deadline into the task list
+     *
+     * @param tasks TaskList instantiation
+     * @param ui Ui instantiation
+     * @param storage Storage instantiation
+     * @param s User string input
+     */
     public void taskAddDeadline(TaskList tasks, Ui ui, Storage storage, String s) {
         String[] inputSplitAtSlash;
         try {
@@ -76,6 +102,14 @@ public class TaskList {
         }
     }
 
+    /**
+     * Adds a todo into the task list
+     *
+     * @param tasks TaskList instantiation
+     * @param ui Ui instantiation
+     * @param storage Storage instantiation
+     * @param input User string input
+     */
     public void taskAddTodo(TaskList tasks, Ui ui, Storage storage, String input) {
         try {
             Todo temp = new Todo(input);
@@ -89,6 +123,14 @@ public class TaskList {
         }
     }
 
+    /**
+     * Marks a task as done
+     *
+     * @param tasks TaskList instantiation
+     * @param ui Ui instantiation
+     * @param storage Storage instantiation
+     * @param inputSplit User numerical input for task
+     */
     public void taskDone(TaskList tasks, Ui ui, Storage storage, String inputSplit) {
         Ui.printLine();
         try {
@@ -109,6 +151,11 @@ public class TaskList {
         Ui.printLine();
     }
 
+    /**
+     * Returns size of tasks arraylist
+     *
+     * @return ArrayList size
+     */
     public int getTasksSize() {
         return tasks.size();
     }

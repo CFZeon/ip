@@ -10,8 +10,17 @@ import duke.command.DoneCommand;
 import duke.command.HelpCommand;
 import duke.command.ListTasksCommand;
 
+/**
+ * Parses inputs for other functions to use
+ */
 public class Parser{
 
+    /**
+     * Interprets the user input then creates a command
+     *
+     * @param inputString User input
+     * @return Command
+     */
     protected static Command parseCommand(String inputString) {
         // limit of 2 splits the string into 2 parts
         String[] inputSplit = inputString.trim().split(" ", 2);
