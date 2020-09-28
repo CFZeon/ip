@@ -1,9 +1,13 @@
 package duke.task;
 
+import java.time.LocalDate;
+
 public class Task {
+    boolean isDateExist;
+    protected boolean isDone;
     protected String description;
     protected String[] doBy;
-    protected boolean isDone;
+    LocalDate date;
 
     public Task(String description) {
         this.description = description;
@@ -36,5 +40,9 @@ public class Task {
 
     public String[] getDoBy() {
         return doBy;
+    }
+
+    public LocalDate getDate() {
+        return date;
     }
 }

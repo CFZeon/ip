@@ -1,14 +1,6 @@
 package duke;
 
-import duke.command.AddDeadlineCommand;
-import duke.command.AddEventCommand;
-import duke.command.AddTodoCommand;
-import duke.command.ByeCommand;
-import duke.command.Command;
-import duke.command.DeleteCommand;
-import duke.command.DoneCommand;
-import duke.command.HelpCommand;
-import duke.command.ListTasksCommand;
+import duke.command.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -60,6 +52,12 @@ public class Parser{
                 }
                 c = new DeleteCommand(inputSplit[1]);
                 break;
+            case "dateSearch":
+                if (inputSplit.length < 2) {
+                    throw new DukeException("dateSearch");
+                }
+                c = new DateSearchCommand(inputSplit[1]);
+                break;
             case "bye":
                 c = new ByeCommand();
                 break;
@@ -79,7 +77,7 @@ public class Parser{
 
     public static LocalTime parseTime(String dateTimeInput) {
         String[] dateTimeSplit = dateTimeInput.trim().split(" ", 2);
-        String timeInput = null;
+        String timeInput;
 
         // checks if there is a time in the format dd-mm-yyyy HHmm format
         if (dateTimeSplit.length == 2) {

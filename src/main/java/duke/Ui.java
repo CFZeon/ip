@@ -1,5 +1,11 @@
 package duke;
 
+import duke.task.Deadline;
+import duke.task.Event;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Ui {
     static final String LINE = "____________________________________________________________";
 
@@ -74,6 +80,19 @@ public class Ui {
     protected void byeMessage() {
         printLine();
         System.out.println("Bye! Hope to see you again soon!");
+        printLine();
+    }
+
+    public void dateSearch(LocalDate date) {
+        printLine();
+        System.out.println("Here are the tasks at " + date.format(DateTimeFormatter.ofPattern("MMM d yyyy")));
+        for (int i = 0; i < TaskList.tasks.size(); i++) {
+            if (TaskList.tasks.get(i) instanceof Event || TaskList.tasks.get(i) instanceof Deadline) {
+                if (date.equals(TaskList.tasks.get(i).getDate())) {
+                    System.out.println((i + 1) + " " + TaskList.tasks.get(i));
+                }
+            }
+        }
         printLine();
     }
 
