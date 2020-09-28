@@ -33,6 +33,8 @@ public class DukeException extends Exception{
             System.out.println("List loading unsuccessful...");
             System.out.println("I loaded what I could before the error though!");
             break;
+        case "find":
+            System.out.println("Please enter a proper find! \"find [String]\"");
         case "DateFormat":
             System.out.println("Invalid date and time format!");
             System.out.println("Try this: dd/mm/yyyy");
