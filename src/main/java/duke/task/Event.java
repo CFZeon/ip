@@ -1,13 +1,23 @@
 package duke.task;
 
+
 import duke.Parser;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents an event
+ */
 public class Event extends Task {
     boolean isTimeExist;
     LocalTime time;
+    /**
+     * Constructs an instantiation of an event
+     *
+     * @param description Description of the event
+     * @param doBy Threshold of when the event is on
+     */
     public Event(String description, String doBy) {
         super(description);
         this.doBy = doBy.trim().split(" ", 2);
@@ -17,6 +27,11 @@ public class Event extends Task {
         this.isTimeExist = this.time != null;
     }
 
+    /**
+     * Prints a fully formatted event
+     *
+     * @return Returns a fully formatted event string
+     */
     @Override
     public String toString() {
         if (isDateExist && isTimeExist) {

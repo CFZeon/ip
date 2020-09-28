@@ -1,18 +1,7 @@
-<<<<<<< HEAD
-Event | false | asdf  | sdf | hrew
-Todo | false | heh
-Todo | false | ihbsujegr
-Todo | false | library
-Todo | false | yujin
-Todo | false | liboo
-Event | false | libaroodedoo  | at | tomorrow
-=======
 Deadline | false | go to library  | by | 05/04/2020 1800
 Deadline | false | dont go to library  | at | some time tomorrow
 Deadline | true | play game  | on | 05/04/2020 2359
 Deadline | false | play other game  | at | 07/08/2020
 Event | true | go to library  | by | 05/04/2020 1800
-Event | false | dont go to library  | at | some time tomorrow
-Event | true | play game  | on | 05/04/2020 2359
 Event | false | play other game  | at | 07/08/2020
->>>>>>> master
+Deadline | false | asdf  | by | jkl;

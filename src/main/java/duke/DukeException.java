@@ -1,13 +1,26 @@
 package duke;
 
+/**
+ * Contains errors that duke might encounter during runtime
+ */
 public class DukeException extends Exception{
 
     protected String error;
 
+    /**
+     * Constructs an instantiation of this exception
+     *
+     * @param error Error type
+     */
     public DukeException(String error){
         this.error = error;
     }
 
+    /**
+     * Shows the error the user encountered
+     *
+     * @param input Error type
+     */
     public void getError(String input){
         switch (error) {
         case "format":

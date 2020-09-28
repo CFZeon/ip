@@ -12,10 +12,19 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Contains functions for saving and loading in Duke
+ */
 public class Storage{
     static final String TASKS_SAVE_PATH = "data/tasksList.txt";
     private static ArrayList<Task> tasksList = new ArrayList<>();
 
+    /**
+     * Saves all tasks into a text file
+     *
+     * @param saveInput Task ArrayList
+     * @throws DukeException If save fails
+     */
     public void saveTasks(ArrayList<Task> saveInput) throws DukeException{
         File saveFile = new File(TASKS_SAVE_PATH);
         boolean doesFileExist = saveFile.exists();
@@ -55,6 +64,12 @@ public class Storage{
         }
     }
 
+    /**
+     * Loads the saved list of tasks
+     *
+     * @return Populated Task ArrayList
+     * @throws DukeException if there is error in loading input
+     */
     public ArrayList<Task> loadTasksList() throws DukeException{
         // creates file for the path
         File saveFile = new File(TASKS_SAVE_PATH);

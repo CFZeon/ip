@@ -1,13 +1,24 @@
 package duke.task;
 
+
 import duke.Parser;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents a deadline
+ */
 public class Deadline extends Task {
     boolean isTimeExist;
     LocalTime time;
+
+    /**
+     * Constructs an instantiation of an deadline
+     *
+     * @param description Description of the deadline
+     * @param doBy Threshold of when the deadline should be met by
+     */
     public Deadline(String description, String doBy) {
         super(description);
         this.doBy = doBy.trim().split(" ", 2);
@@ -17,6 +28,11 @@ public class Deadline extends Task {
         this.isTimeExist = this.time != null;
     }
 
+    /**
+     * Prints a fully formatted deadline
+     *
+     * @return Returns a fully formatted deadline string
+     */
     @Override
     public String toString() {
         if (isDateExist && isTimeExist) {
