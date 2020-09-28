@@ -6,6 +6,8 @@ done 1
 deadline bar /foo lish
 list
 event foo /bar
+event something /at 04/05/2020 2359
+deadline same thing but /on 03-05-2020
 deadline bar /foo
 random input line here
 delete 1

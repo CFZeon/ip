@@ -1,5 +1,12 @@
 package duke;
 
+
+import duke.task.Deadline;
+import duke.task.Event;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 /**
  * Contains methods for all user interactions
  */
@@ -14,11 +21,15 @@ public class Ui {
         System.out.println("Here are a list of available commands:");
         System.out.println("\"done [number on list]\": marks a task on the list as done");
         System.out.println("\"todo [action]\": adds a todo into the list");
-        System.out.println("\"deadline [action] /[limit] [time]\": adds a deadline into the list");
-        System.out.println("\"event [action] /[limit] [time]\": adds an event into the list");
+        System.out.println("\"deadline [action] /[limit] [date] [time]\": adds a deadline into the list");
+        System.out.println("deadlines also print your own strings, or just dates alone");
+        System.out.println("\"event [action] /[limit] [date] [time]\": adds an event into the list");
+        System.out.println("events also print your own strings, or just dates alone");
         System.out.println("\"help\": brings you to this menu!");
         System.out.println("\"delete [number on list]\": removes a task from the list");
         System.out.println("\"bye\": exits duke");
+        System.out.println("Failed to use date and time properly? Try this:");
+        System.out.println("dd/MM/yyyy HHmm");
         printLine();
     }
 
@@ -39,7 +50,7 @@ public class Ui {
     }
 
     /**
-     * Print messasge for adding a task when it is a todo
+     * Print message for adding a task when it is a todo
      * @param tasks Instantiation of TaskList
      */
     public void taskAddMessage(TaskList tasks) {
@@ -107,6 +118,19 @@ public class Ui {
     /**
      * Prints a line for user interface
      */
+    public void dateSearch(LocalDate date) {
+        printLine();
+        System.out.println("Here are the tasks at " + date.format(DateTimeFormatter.ofPattern("MMM d yyyy")));
+        for (int i = 0; i < TaskList.tasks.size(); i++) {
+            if (TaskList.tasks.get(i) instanceof Event || TaskList.tasks.get(i) instanceof Deadline) {
+                if (date.equals(TaskList.tasks.get(i).getDate())) {
+                    System.out.println((i + 1) + " " + TaskList.tasks.get(i));
+                }
+            }
+        }
+        printLine();
+    }
+
     protected static void printLine() {
         System.out.println(LINE);
     }

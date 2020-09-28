@@ -1,12 +1,16 @@
 package duke.task;
 
+
+import java.time.LocalDate;
 /**
  * Parents the other tasks
  */
 public class Task {
+    boolean isDateExist;
+    protected boolean isDone;
     protected String description;
     protected String[] doBy;
-    protected boolean isDone;
+    LocalDate date;
 
     /**
      * Constructs an instantiation of an deadline
@@ -77,5 +81,9 @@ public class Task {
      */
     public String[] getDoBy() {
         return doBy;
+    }
+
+    public LocalDate getDate() {
+        return date;
     }
 }
