@@ -33,6 +33,8 @@ public class DukeException extends Exception{
             System.out.println("List loading unsuccessful...");
             System.out.println("I saved what I could though!");
             break;
+        case "find":
+            System.out.println("Please enter a proper find! \"find [String]\"");
         default:
             System.out.println("Please enter a valid command! Type \"help\" to see a list of commands!");
             break;

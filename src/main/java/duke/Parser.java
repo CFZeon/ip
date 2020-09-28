@@ -1,14 +1,6 @@
 package duke;
 
-import duke.command.AddDeadlineCommand;
-import duke.command.AddEventCommand;
-import duke.command.AddTodoCommand;
-import duke.command.ByeCommand;
-import duke.command.Command;
-import duke.command.DeleteCommand;
-import duke.command.DoneCommand;
-import duke.command.HelpCommand;
-import duke.command.ListTasksCommand;
+import duke.command.*;
 
 public class Parser{
 
@@ -57,6 +49,12 @@ public class Parser{
                 break;
             case "bye":
                 c = new ByeCommand();
+                break;
+            case "find":
+                if (inputSplit.length < 2) {
+                    throw new DukeException("find");
+                }
+                c = new FindCommand(inputSplit[1]);
                 break;
             default:
                 Ui.invalidCommandMessage();

@@ -76,4 +76,16 @@ public class Ui {
     protected static void printLine() {
         System.out.println(LINE);
     }
+
+    public void taskFind(TaskList tasks, Ui ui, Storage storage, String inputSplit) {
+        printLine();
+        System.out.println("Here are the matching tasks in your list:");
+        for (int i = 0; i < TaskList.tasks.size(); i++) {
+            String description = TaskList.tasks.get(i).getDescription();
+            if (description.contains(inputSplit)) {
+                System.out.println((i+1) + ". " + TaskList.tasks.get(i));
+            }
+        }
+        printLine();
+    }
 }
