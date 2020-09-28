@@ -2,15 +2,12 @@ package duke.task;
 
 import duke.Parser;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class Deadline extends Task {
-    boolean isDateExist;
     boolean isTimeExist;
     LocalTime time;
-    LocalDate date;
     public Deadline(String description, String doBy) {
         super(description);
         this.doBy = doBy.trim().split(" ", 2);
