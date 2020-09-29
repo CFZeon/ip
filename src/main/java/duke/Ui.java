@@ -19,17 +19,22 @@ public class Ui {
     public void taskHelp() {
         printLine();
         System.out.println("Here are a list of available commands:");
-        System.out.println("\"done [number on list]\": marks a task on the list as done");
+        System.out.println("\"help\": brings you to this menu!");
+        System.out.println("\"list\": Prints a list of all available tasks");
         System.out.println("\"todo [action]\": adds a todo into the list");
         System.out.println("\"deadline [action] /[limit] [date] [time]\": adds a deadline into the list");
         System.out.println("deadlines also print your own strings, or just dates alone");
         System.out.println("\"event [action] /[limit] [date] [time]\": adds an event into the list");
         System.out.println("events also print your own strings, or just dates alone");
-        System.out.println("\"help\": brings you to this menu!");
+        System.out.println("\"done [number on list]\": marks a task on the list as done");
         System.out.println("\"delete [number on list]\": removes a task from the list");
+        System.out.println("\"dateSearch [date]\": Searches for a task by date");
         System.out.println("\"bye\": exits duke");
-        System.out.println("Failed to use date and time properly? Try this:");
+        System.out.println("Failed to use date and time properly? Try these:");
         System.out.println("dd/MM/yyyy HHmm");
+        System.out.println("dd-MM-yyyy HHmm");
+        System.out.println("yyyy/MM/dd HHmm");
+        System.out.println("yyyy-MM-dd HHmm");
         printLine();
     }
 
