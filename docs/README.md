@@ -13,7 +13,7 @@ Duke is a functional todo-list for managing your all your tasks, using the Comma
     + [7. delete](#7-delete)
     + [8. find](#8-find)
     + [9. dateSearch](#9-dateSearch)
-    + [9. bye](#9-bye)
+    + [10. bye](#9-bye)
 * [Command Summary](#command-summary)
 
 ## Quick Start
@@ -43,7 +43,6 @@ Duke can do the following:
 Prints out a list of all available commands
 
 ##### Usage
-
 Format: `help`
 
 
@@ -51,7 +50,6 @@ Format: `help`
 Prints out the list of all tasks
 
 ##### Usage
-
 Format: `list`
 
 
@@ -59,7 +57,6 @@ Format: `list`
 Adds a todo task to the list of tasks
 
 ##### Usage
-
 Format: `todo [task description]`
 
 
@@ -67,7 +64,6 @@ Format: `todo [task description]`
 Adds a deadline task to the list of tasks
 
 ##### Usage
-
 Format: `deadline [task description] /[time limit] [date or string]`
 
 
@@ -75,7 +71,6 @@ Format: `deadline [task description] /[time limit] [date or string]`
 Adds an event task to the list of tasks
 
 ##### Usage
-
 Format: `event [task description] /[time limit] [date or string]`
 
 
@@ -83,7 +78,6 @@ Format: `event [task description] /[time limit] [date or string]`
 Marks a task as done
 
 ##### Usage
-
 Format: `done [task number]`
 
 
@@ -91,7 +85,6 @@ Format: `done [task number]`
 Removes a task from the list
 
 ##### Usage
-
 Format: `delete [task number]`
 
 
@@ -99,13 +92,11 @@ Format: `delete [task number]`
 Finds tasks with a keyword or string the user inputs
 
 ##### Usage
-
 Format: `find [keyword or string]`
 
 
 ### 9. dateSearch
 Search through the list of tasks by date
-
 ##### Usage
 
 Format: `dateSearch [date]`
@@ -115,7 +106,6 @@ Format: `dateSearch [date]`
 Exits this application
 
 ##### Usage
-
 Format: `bye`
 
 
@@ -131,5 +121,5 @@ event | `event [task description] /[time limit] [date or string]` | `event` TED 
 find | `find [keyword or string]` | `find study`
 done | `done [task number]`  | `done 3`
 delete | `delete [task number]` | `delete 4`
-help | `help` | -
+dateSearch | `dateSearch [date]` | dateSearch 2020/12/20
 bye | `bye` | -
