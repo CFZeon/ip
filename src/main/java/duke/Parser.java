@@ -100,6 +100,12 @@ public class Parser{
         return c;
     }
 
+    /**
+     * Converts the user time input to LocalTime object
+     *
+     * @param dateTimeInput Date time input string
+     * @return LocalTime object
+     */
     public static LocalTime parseTime(String dateTimeInput) {
         String[] dateTimeSplit = dateTimeInput.trim().split(" ", 2);
         String timeInput;
@@ -123,6 +129,12 @@ public class Parser{
         return time;
     }
 
+    /**
+     * Converts the date and time into a LocalDate object
+     *
+     * @param dateTimeInput Date time input string
+     * @return LocalDate object
+     */
     public static LocalDate parseDate(String dateTimeInput) {
         String[] dateTimeSplit = dateTimeInput.trim().split(" ", 2);
         String dateInput;
