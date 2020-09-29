@@ -13,7 +13,7 @@ Duke is a functional todo-list for managing your all your tasks, using the Comma
     + [7. delete](#7-delete)
     + [8. find](#8-find)
     + [9. dateSearch](#9-dateSearch)
-    + [10. bye](#9-bye)
+    + [10. bye](#10-bye)
 * [Command Summary](#command-summary)
 
 ## Quick Start
