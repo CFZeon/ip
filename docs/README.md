@@ -122,7 +122,7 @@ Format: `bye`
 ## Command Summary
 
 Command | Format | Example
--------- | ---------- | ------------
+------- | ---------- | ------------
 help | `help` | -
 list | `list` | -
 todo | `todo [task description]` | `todo study for exams`
@@ -130,6 +130,6 @@ deadline | `deadline [task description] /[time limit] [date or string]`| `deadli
 event | `event [task description] /[time limit] [date or string]` | `event` TED talk /at 30-12-2020
 find | `find [keyword or string]` | `find study`
 done | `done [task number]`  | `done 3`
-delete | `delete [task number] | `delete 4`
+delete | `delete [task number]` | `delete 4`
 help | `help` | -
 bye | `bye` | -
